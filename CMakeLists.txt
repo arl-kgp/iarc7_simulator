@@ -190,7 +190,7 @@ include_directories(
 
 set(CMAKE_CXX_FLAGS "-msse3 -std=c++11")
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
+find_package(OpenCV REQUIRED)
 #find_package(Qt4 REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Core REQUIRED)
@@ -199,6 +199,7 @@ find_package(Qt5Gui REQUIRED)
 add_definitions(${QT_DEFINITIONS})
 include_directories(include/gui ${CMAKE_CURRENT_BINARY_DIR})
 include_directories(include)
+include_directories(${OpenCV_INCLUDE_DIRS})
 
 #set(CMAKE_AUTOMOC ON)
 #set(CMAKE_AUTOUIC ON)
@@ -229,5 +230,5 @@ set(ROS_SOURCES
 QT5_WRAP_CPP(ROS_QT_MOC_HPP ${ROS_QT_HEADERS})
 
 add_executable(iarc7_simulator ${GUI_SOURCES} ${ROS_SOURCES} ${ROS_QT_MOC_HPP})
-target_link_libraries(iarc7_simulator ${catkin_LIBRARIES} Qt5::Widgets)
+target_link_libraries(iarc7_simulator ${catkin_LIBRARIES} ${OpenCV_LIBS} Qt5::Widgets)
 add_dependencies(iarc7_simulator ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

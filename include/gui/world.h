@@ -5,8 +5,12 @@
 #include <QPainter>
 #include <QPaintEvent>
 #include <QDebug>
+#include <vector>
+#include <opencv2/opencv.hpp>
 #include "common.h"
 #include "drawing_constants.h"
+
+using namespace cv;
 
 class World : public QWidget
 {
@@ -17,6 +21,7 @@ public:
   explicit World(QWidget *parent = 0);
 private:
   QPointF realToSimCoord(QPointF coord);
+  vector< double > ellipseFromCovMatrix(double* covariance);
 protected:
   void paintEvent(QPaintEvent *event) override;
   void paintField(QPainter& painter);
