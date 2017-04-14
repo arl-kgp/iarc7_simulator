@@ -1,2 +1,15 @@
 # iarc7_simulator
-Simulator for IARC 7
+
+## Running the simulator
+
+```bash
+$ roslaunch cvg_sim_gazebo iarc_with_bots.launch 
+```
+
+```bash
+$ rosrun quad_simulator groundbot_node
+```
+
+```bash
+$ rosrun iarc7_simulator iarc7_simulator
+```
