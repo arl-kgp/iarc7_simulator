@@ -127,7 +127,18 @@ void World::paintEvent(QPaintEvent *)
   paintQuad(painter, common->getQuadPose());
   paintObstacleBot(painter, common->getgBot0Pose());
   paintObstacleBot(painter, common->getgBot1Pose());
+paintObstacleBot(painter, common->getgBot2Pose());
+paintObstacleBot(painter, common->getgBot3Pose());
+paintGBot(painter, common->getgBot4Pose());
   paintGBot(painter, common->getgBot5Pose());
+paintGBot(painter, common->getgBot6Pose());
+paintGBot(painter, common->getgBot7Pose());
+paintGBot(painter, common->getgBot8Pose());
+paintGBot(painter, common->getgBot9Pose());
+paintGBot(painter, common->getgBot10Pose());
+paintGBot(painter, common->getgBot11Pose());
+paintGBot(painter, common->getgBot12Pose());
+paintGBot(painter, common->getgBot13Pose());
   emit painting();
 }
 
