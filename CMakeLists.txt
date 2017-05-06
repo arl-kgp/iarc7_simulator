@@ -187,7 +187,6 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-
 set(CMAKE_CXX_FLAGS "-msse3 -std=c++11")
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 find_package(OpenCV REQUIRED)

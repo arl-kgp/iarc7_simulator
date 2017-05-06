@@ -35,6 +35,37 @@ Pose Common::getgBot1Pose()
   return gBot1Pose;
 }
 
+void Common::setgBot2Pose(Pose p)
+{
+  gBot2Pose = p;
+}
+
+Pose Common::getgBot2Pose()
+{
+  return gBot2Pose;
+}
+
+void Common::setgBot3Pose(Pose p)
+{
+  gBot3Pose = p;
+}
+
+Pose Common::getgBot3Pose()
+{
+  return gBot3Pose;
+}
+
+void Common::setgBot4Pose(Pose p)
+{
+  gBot4Pose = p;
+}
+
+Pose Common::getgBot4Pose()
+{
+  return gBot4Pose;
+}
+
+
 void Common::setgBot5Pose(Pose p)
 {
   gBot5Pose = p;
@@ -44,6 +75,87 @@ Pose Common::getgBot5Pose()
 {
   return gBot5Pose;
 }
+
+void Common::setgBot6Pose(Pose p)
+{
+  gBot6Pose = p;
+}
+
+Pose Common::getgBot6Pose()
+{
+  return gBot6Pose;
+}
+
+void Common::setgBot7Pose(Pose p)
+{
+  gBot7Pose = p;
+}
+
+Pose Common::getgBot7Pose()
+{
+  return gBot7Pose;
+}
+
+void Common::setgBot8Pose(Pose p)
+{
+  gBot8Pose = p;
+}
+
+Pose Common::getgBot8Pose()
+{
+  return gBot8Pose;
+}
+
+void Common::setgBot9Pose(Pose p)
+{
+  gBot9Pose = p;
+}
+
+Pose Common::getgBot9Pose()
+{
+  return gBot9Pose;
+}
+
+void Common::setgBot10Pose(Pose p)
+{
+  gBot10Pose = p;
+}
+
+Pose Common::getgBot10Pose()
+{
+  return gBot10Pose;
+}
+
+void Common::setgBot11Pose(Pose p)
+{
+  gBot11Pose = p;
+}
+
+Pose Common::getgBot11Pose()
+{
+  return gBot11Pose;
+}
+
+void Common::setgBot12Pose(Pose p)
+{
+  gBot12Pose = p;
+}
+
+Pose Common::getgBot12Pose()
+{
+  return gBot12Pose;
+}
+
+void Common::setgBot13Pose(Pose p)
+{
+  gBot13Pose = p;
+}
+
+Pose Common::getgBot13Pose()
+{
+  return gBot13Pose;
+}
+
 
 void Common::quatToEuler(double q_w, double q_x, double q_y, double q_z, double& yaw, double& pitch, double& roll)
 {

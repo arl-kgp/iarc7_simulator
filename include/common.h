@@ -26,10 +26,33 @@ public:
   Pose getgBot0Pose();
   void setgBot1Pose(Pose p);
   Pose getgBot1Pose();
+  void setgBot2Pose(Pose p);
+  Pose getgBot2Pose();
+void setgBot3Pose(Pose p);
+  Pose getgBot3Pose();
+void setgBot4Pose(Pose p);
+  Pose getgBot4Pose();
   void setgBot5Pose(Pose p);
   Pose getgBot5Pose();
+void setgBot6Pose(Pose p);
+  Pose getgBot6Pose();
+void setgBot7Pose(Pose p);
+  Pose getgBot7Pose();
+void setgBot8Pose(Pose p);
+  Pose getgBot8Pose();
+void setgBot9Pose(Pose p);
+  Pose getgBot9Pose();
+void setgBot10Pose(Pose p);
+  Pose getgBot10Pose();
+void setgBot11Pose(Pose p);
+  Pose getgBot11Pose();
+void setgBot12Pose(Pose p);
+  Pose getgBot12Pose();
+void setgBot13Pose(Pose p);
+  Pose getgBot13Pose();
+
 protected:
-  Pose quadPose, gBot0Pose, gBot1Pose, gBot5Pose;
+  Pose quadPose, gBot0Pose, gBot1Pose, gBot2Pose, gBot3Pose, gBot4Pose, gBot5Pose, gBot6Pose, gBot7Pose, gBot8Pose, gBot9Pose, gBot10Pose, gBot11Pose, gBot12Pose, gBot13Pose;
 };
 
 #endif // COMMON_H
