@@ -11,6 +11,7 @@
 #include "drawing_constants.h"
 
 using namespace cv;
+using namespace std;
 
 class World : public QWidget
 {
@@ -28,6 +29,7 @@ protected:
   void paintQuad(QPainter& painter, Pose p);
   void paintObstacleBot(QPainter& painter, Pose p);
   void paintGBot(QPainter& painter, Pose p);
+  void paintEstiGBot(QPainter& painter, Pose p);
 signals:
   void painting();
 public slots:

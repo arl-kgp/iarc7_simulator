@@ -157,6 +157,108 @@ Pose Common::getgBot13Pose()
 }
 
 
+void Common::setgBot4EstiPose(Pose p)
+{
+  gBot4EstiPose = p;
+}
+
+Pose Common::getgBot4EstiPose()
+{
+  return gBot4EstiPose;
+}
+
+
+void Common::setgBot5EstiPose(Pose p)
+{
+  gBot5EstiPose = p;
+}
+
+Pose Common::getgBot5EstiPose()
+{
+  return gBot5EstiPose;
+}
+
+void Common::setgBot6EstiPose(Pose p)
+{
+  gBot6EstiPose = p;
+}
+
+Pose Common::getgBot6EstiPose()
+{
+  return gBot6EstiPose;
+}
+
+void Common::setgBot7EstiPose(Pose p)
+{
+  gBot7EstiPose = p;
+}
+
+Pose Common::getgBot7EstiPose()
+{
+  return gBot7EstiPose;
+}
+
+void Common::setgBot8EstiPose(Pose p)
+{
+  gBot8EstiPose = p;
+}
+
+Pose Common::getgBot8EstiPose()
+{
+  return gBot8EstiPose;
+}
+
+void Common::setgBot9EstiPose(Pose p)
+{
+  gBot9EstiPose = p;
+}
+
+Pose Common::getgBot9EstiPose()
+{
+  return gBot9EstiPose;
+}
+
+void Common::setgBot10EstiPose(Pose p)
+{
+  gBot10EstiPose = p;
+}
+
+Pose Common::getgBot10EstiPose()
+{
+  return gBot10EstiPose;
+}
+
+void Common::setgBot11EstiPose(Pose p)
+{
+  gBot11EstiPose = p;
+}
+
+Pose Common::getgBot11EstiPose()
+{
+  return gBot11EstiPose;
+}
+
+void Common::setgBot12EstiPose(Pose p)
+{
+  gBot12EstiPose = p;
+}
+
+Pose Common::getgBot12EstiPose()
+{
+  return gBot12EstiPose;
+}
+
+void Common::setgBot13EstiPose(Pose p)
+{
+  gBot13EstiPose = p;
+}
+
+Pose Common::getgBot13EstiPose()
+{
+  return gBot13EstiPose;
+}
+
+
 void Common::quatToEuler(double q_w, double q_x, double q_y, double q_z, double& yaw, double& pitch, double& roll)
 {
   const double w2 = q_w*q_w;

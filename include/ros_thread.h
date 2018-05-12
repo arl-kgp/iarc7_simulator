@@ -37,11 +37,23 @@ void gBot10Callback(const nav_msgs::OdometryConstPtr& msg);
 void gBot11Callback(const nav_msgs::OdometryConstPtr& msg);
 void gBot12Callback(const nav_msgs::OdometryConstPtr& msg);
 void gBot13Callback(const nav_msgs::OdometryConstPtr& msg);
+
+void esti_gBot4Callback(const nav_msgs::OdometryConstPtr& msg);
+  void esti_gBot5Callback(const nav_msgs::OdometryConstPtr& msg);
+  void esti_gBot6Callback(const nav_msgs::OdometryConstPtr& msg);
+  void esti_gBot7Callback(const nav_msgs::OdometryConstPtr& msg);
+  void esti_gBot8Callback(const nav_msgs::OdometryConstPtr& msg);
+  void esti_gBot9Callback(const nav_msgs::OdometryConstPtr& msg);
+void esti_gBot10Callback(const nav_msgs::OdometryConstPtr& msg);
+void esti_gBot11Callback(const nav_msgs::OdometryConstPtr& msg);
+void esti_gBot12Callback(const nav_msgs::OdometryConstPtr& msg);
+void esti_gBot13Callback(const nav_msgs::OdometryConstPtr& msg);
 private:
   int m_argc;
   char** m_argv;
   QThread *m_pThread;
   ros::Subscriber sub_quad, sub_gbot0, sub_gbot1, sub_gbot2, sub_gbot3, sub_gbot4, sub_gbot5, sub_gbot6, sub_gbot7, sub_gbot8, sub_gbot9, sub_gbot10, sub_gbot11, sub_gbot12, sub_gbot13;
+  ros::Subscriber esti_gbot4 , esti_gbot5 ,esti_gbot6 ,esti_gbot7 ,esti_gbot8 ,esti_gbot9 ,esti_gbot10 ,esti_gbot11 ,esti_gbot12 ,esti_gbot13 ;
 signals:
   void newPose();
 public slots:

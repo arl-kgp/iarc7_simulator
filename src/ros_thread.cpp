@@ -40,11 +40,22 @@ bool ROSThread::init()
   sub_gbot6 = nh.subscribe("/robot6/odom", 10, &ROSThread::gBot6Callback, this);
   sub_gbot7 = nh.subscribe("/robot7/odom", 10, &ROSThread::gBot7Callback, this);
   sub_gbot8 = nh.subscribe("/robot8/odom", 10, &ROSThread::gBot8Callback, this);
-  sub_gbot9 = nh.subscribe("/robot9/odom", 10, &ROSThread::gBot9Callback, this);
+  sub_gbot9   = nh.subscribe("/robot9/odom", 10, &ROSThread::gBot9Callback, this);
  sub_gbot10 = nh.subscribe("/robot10/odom", 10, &ROSThread::gBot10Callback, this);
  sub_gbot11 = nh.subscribe("/robot11/odom", 10, &ROSThread::gBot11Callback, this);
  sub_gbot12 = nh.subscribe("/robot12/odom", 10, &ROSThread::gBot12Callback, this);
  sub_gbot13 = nh.subscribe("/robot13/odom", 10, &ROSThread::gBot13Callback, this);
+
+ esti_gbot4 = nh.subscribe("/robot4/estimated", 10, &ROSThread::esti_gBot4Callback, this);
+  esti_gbot5 = nh.subscribe("/robot5/estimated", 10, &ROSThread::esti_gBot5Callback, this);
+  esti_gbot6 = nh.subscribe("/robot6/estimated", 10, &ROSThread::esti_gBot6Callback, this);
+  esti_gbot7 = nh.subscribe("/robot7/estimated", 10, &ROSThread::esti_gBot7Callback, this);
+  esti_gbot8 = nh.subscribe("/robot8/estimated", 10, &ROSThread::esti_gBot8Callback, this);
+  esti_gbot9 = nh.subscribe("/robot9/estimated", 10, &ROSThread::esti_gBot9Callback, this);
+ esti_gbot10 = nh.subscribe("/robot10/estimated", 10, &ROSThread::esti_gBot10Callback, this);
+ esti_gbot11 = nh.subscribe("/robot11/estimated", 10, &ROSThread::esti_gBot11Callback, this);
+ esti_gbot12 = nh.subscribe("/robot12/estimated", 10, &ROSThread::esti_gBot12Callback, this);
+ esti_gbot13 = nh.subscribe("/robot13/estimated", 10, &ROSThread::esti_gBot13Callback, this);
   m_pThread->start();
   return true;
 }
@@ -464,12 +475,188 @@ void ROSThread::gBot13Callback(const nav_msgs::OdometryConstPtr& msg)
   p.velocity.ang_z = msg->twist.twist.angular.z;
   for (int i = 0; i < 36; i++)
     p.covariance[i] = (double)msg->pose.covariance[i];
-  common->setgBot13Pose(p);
+  common->setgBot13Pose(p);   
   pMutex->unlock();
 
   delete pMutex;
   Q_EMIT newPose();
 }
+
+void ROSThread::esti_gBot4Callback(const nav_msgs::OdometryConstPtr& msg)
+{
+  QMutex * pMutex = new QMutex();
+
+  pMutex->lock();
+  Pose p;
+  Pose p1;
+  p.x = msg->pose.pose.position.x;
+  p.y = msg->pose.pose.position.y;
+  
+ 
+  for (int i = 0; i < 36; i++)
+    p.covariance[i] = (double)msg->pose.covariance[i];
+  common->setgBot4EstiPose(p);
+  
+  pMutex->unlock();
+
+  delete pMutex;
+  Q_EMIT newPose();
+ 
+}
+void ROSThread::esti_gBot5Callback(const nav_msgs::OdometryConstPtr& msg)
+{
+  QMutex * pMutex = new QMutex();
+
+  pMutex->lock();
+  Pose p;
+  p.x = msg->pose.pose.position.x;
+  p.y = msg->pose.pose.position.y;
+ 
+  for (int i = 0; i < 36; i++)
+    p.covariance[i] = (double)msg->pose.covariance[i];
+  common->setgBot5EstiPose(p);
+  pMutex->unlock();
+
+  delete pMutex;
+  Q_EMIT newPose();
+}
+void ROSThread::esti_gBot6Callback(const nav_msgs::OdometryConstPtr& msg)
+{
+  QMutex * pMutex = new QMutex();
+
+  pMutex->lock();
+  Pose p;
+  p.x = msg->pose.pose.position.x;
+  p.y = msg->pose.pose.position.y;
+ 
+  for (int i = 0; i < 36; i++)
+    p.covariance[i] = (double)msg->pose.covariance[i];
+  common->setgBot6EstiPose(p);
+  pMutex->unlock();
+
+  delete pMutex;
+  Q_EMIT newPose();
+}
+void ROSThread::esti_gBot7Callback(const nav_msgs::OdometryConstPtr& msg)
+{
+  QMutex * pMutex = new QMutex();
+
+  pMutex->lock();
+  Pose p;
+  p.x = msg->pose.pose.position.x;
+  p.y = msg->pose.pose.position.y;
+ 
+  for (int i = 0; i < 36; i++)
+    p.covariance[i] = (double)msg->pose.covariance[i];
+  common->setgBot7EstiPose(p);
+  pMutex->unlock();
+
+  delete pMutex;
+  Q_EMIT newPose();
+}
+void ROSThread::esti_gBot8Callback(const nav_msgs::OdometryConstPtr& msg)
+{
+  QMutex * pMutex = new QMutex();
+
+  pMutex->lock();
+  Pose p;
+  p.x = msg->pose.pose.position.x;
+  p.y = msg->pose.pose.position.y;
+ 
+  for (int i = 0; i < 36; i++)
+    p.covariance[i] = (double)msg->pose.covariance[i];
+  common->setgBot8EstiPose(p);
+  pMutex->unlock();
+
+  delete pMutex;
+  Q_EMIT newPose();
+}
+void ROSThread::esti_gBot9Callback(const nav_msgs::OdometryConstPtr& msg)
+{
+  QMutex * pMutex = new QMutex();
+
+  pMutex->lock();
+  Pose p;
+  p.x = msg->pose.pose.position.x;
+  p.y = msg->pose.pose.position.y;
+ 
+  for (int i = 0; i < 36; i++)
+    p.covariance[i] = (double)msg->pose.covariance[i];
+  common->setgBot9EstiPose(p);
+  pMutex->unlock();
+
+  delete pMutex;
+  Q_EMIT newPose();
+}
+void ROSThread::esti_gBot10Callback(const nav_msgs::OdometryConstPtr& msg)
+{
+  QMutex * pMutex = new QMutex();
+
+  pMutex->lock();
+  Pose p;
+  p.x = msg->pose.pose.position.x;
+  p.y = msg->pose.pose.position.y;
+ 
+  for (int i = 0; i < 36; i++)
+    p.covariance[i] = (double)msg->pose.covariance[i];
+  common->setgBot10EstiPose(p);
+  pMutex->unlock();
+
+  delete pMutex;
+  Q_EMIT newPose();
+}
+void ROSThread::esti_gBot11Callback(const nav_msgs::OdometryConstPtr& msg)
+{
+  QMutex * pMutex = new QMutex();
+
+  pMutex->lock();
+  Pose p;
+  p.x = msg->pose.pose.position.x;
+  p.y = msg->pose.pose.position.y;
+ 
+  for (int i = 0; i < 36; i++)
+    p.covariance[i] = (double)msg->pose.covariance[i];
+  common->setgBot11EstiPose(p);
+  pMutex->unlock();
+
+  delete pMutex;
+  Q_EMIT newPose();
+}
+void ROSThread::esti_gBot12Callback(const nav_msgs::OdometryConstPtr& msg)
+{
+  QMutex * pMutex = new QMutex();
+
+  pMutex->lock();
+  Pose p;
+  p.x = msg->pose.pose.position.x;
+  p.y = msg->pose.pose.position.y;
+ 
+  for (int i = 0; i < 36; i++)
+    p.covariance[i] = (double)msg->pose.covariance[i];
+  common->setgBot12EstiPose(p);
+  pMutex->unlock();
+
+  delete pMutex;
+  Q_EMIT newPose();
+}
+void ROSThread::esti_gBot13Callback(const nav_msgs::OdometryConstPtr& msg)
+{
+  QMutex * pMutex = new QMutex();
+
+  pMutex->lock();
+  Pose p;
+  p.x = msg->pose.pose.position.x;
+  p.y = msg->pose.pose.position.y;
+ 
+  for (int i = 0; i < 36; i++)
+    p.covariance[i] = (double)msg->pose.covariance[i];
+  common->setgBot13EstiPose(p);
+  pMutex->unlock();
+
+  delete pMutex;
+  Q_EMIT newPose();
+}
+
 
 void ROSThread::run()
 {

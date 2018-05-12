@@ -51,8 +51,31 @@ void setgBot12Pose(Pose p);
 void setgBot13Pose(Pose p);
   Pose getgBot13Pose();
 
+
+void setgBot4EstiPose(Pose p);
+  Pose getgBot4EstiPose();
+void setgBot5EstiPose(Pose p);
+  Pose getgBot5EstiPose();
+void setgBot6EstiPose(Pose p);
+  Pose getgBot6EstiPose();
+void setgBot7EstiPose(Pose p);
+  Pose getgBot7EstiPose();
+void setgBot8EstiPose(Pose p);
+  Pose getgBot8EstiPose();
+void setgBot9EstiPose(Pose p);
+  Pose getgBot9EstiPose();
+void setgBot10EstiPose(Pose p);
+  Pose getgBot10EstiPose();
+void setgBot11EstiPose(Pose p);
+  Pose getgBot11EstiPose();
+void setgBot12EstiPose(Pose p);
+  Pose getgBot12EstiPose();
+void setgBot13EstiPose(Pose p);
+  Pose getgBot13EstiPose();
+
 protected:
   Pose quadPose, gBot0Pose, gBot1Pose, gBot2Pose, gBot3Pose, gBot4Pose, gBot5Pose, gBot6Pose, gBot7Pose, gBot8Pose, gBot9Pose, gBot10Pose, gBot11Pose, gBot12Pose, gBot13Pose;
+  Pose gBot4EstiPose, gBot5EstiPose, gBot6EstiPose, gBot7EstiPose, gBot8EstiPose, gBot9EstiPose, gBot10EstiPose, gBot11EstiPose, gBot12EstiPose, gBot13EstiPose;
 };
 
 #endif // COMMON_H

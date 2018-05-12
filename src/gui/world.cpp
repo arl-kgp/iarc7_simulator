@@ -14,15 +14,15 @@ void World::paintField(QPainter &painter)
   painter.save();
   painter.setRenderHint(QPainter::Antialiasing);
   painter.setPen(Qt::black);
-  painter.setBrush(QBrush(Qt::blue));
+  painter.setBrush(QBrush(Qt::black));
   painter.drawRect(field);
   painter.restore();
 }
 
 QPointF World::realToSimCoord(QPointF coord)
 {
-  double x_offset = (coord.y() * SIM_WORLD_WIDTH / REAL_WORLD_WIDTH);
-  double y_offset = (coord.x() * SIM_WORLD_HEIGHT / REAL_WORLD_HEIGHT);
+  double x_offset = (coord.x() * SIM_WORLD_WIDTH / REAL_WORLD_WIDTH);
+  double y_offset = (coord.y() * SIM_WORLD_HEIGHT / REAL_WORLD_HEIGHT);
   return QPointF(SIM_WORLD_WIDTH / 2 - x_offset, SIM_WORLD_HEIGHT / 2 - y_offset);
 }
 
@@ -32,7 +32,7 @@ vector< double > World::ellipseFromCovMatrix(double *covariance)
   Mat covmat = (cv::Mat_<double>(2,2) << covariance[0], covariance[1], covariance[6], covariance[7]);
   //Mat covmat = (cv::Mat_<double>(2,2) << .1, .05, .05, .1);
   Mat eigenvalues, eigenvectors;
-  cv::eigen(covmat, true, eigenvalues, eigenvectors);
+  cv::eigen(covmat,eigenvalues, eigenvectors);
   //Calculate the angle between the largest eigenvector and the x-axis
   double angle = atan2(eigenvectors.at<double>(0,1), eigenvectors.at<double>(0,0));
 
@@ -42,10 +42,12 @@ vector< double > World::ellipseFromCovMatrix(double *covariance)
 
   //Conver to degrees instead of radians
   angle = 180 * angle / 3.14159265359;
+  printf("%s %f\n","Angle11111111", angle);
 
   //Calculate the size of the minor and major axes
   double halfmajoraxissize = chisquare_val * sqrt(eigenvalues.at<double>(0));
   double halfminoraxissize = chisquare_val * sqrt(eigenvalues.at<double>(1));
+  printf("%s %f %f\n","skdk",halfminoraxissize, halfmajoraxissize);
 
   vector< double > params;
   params.push_back(halfmajoraxissize * SIM_WORLD_WIDTH / REAL_WORLD_WIDTH);
@@ -102,6 +104,35 @@ void World::paintGBot(QPainter &painter, Pose p)
   painter.restore();
 }
 
+void World::paintEstiGBot(QPainter &painter, Pose p)
+{
+  double r = GROUND_BOT_RADIUS;
+  double l = HEADING_ARROW_LENGTH;
+  double roll, pitch, yaw;
+  QPointF p1 = realToSimCoord(QPointF(p.x, p.y));
+  painter.save();
+  painter.setRenderHint(QPainter::Antialiasing);
+  
+  vector< double > covEllipseParams = ellipseFromCovMatrix(p.covariance);
+ 
+
+  painter.setPen(Qt::NoPen);
+  QColor green50 = Qt::green;
+
+  painter.setBrush(green50);
+  painter.translate(p1.x(), p1.y());
+  //printf("%f %f %f %f\n",p1.x(), p1.y(), covEllipseParams[0], covEllipseParams[1] );
+  painter.rotate(covEllipseParams[2]);
+  painter.drawEllipse(QPointF(0,0),covEllipseParams[0], covEllipseParams[1]);
+  painter.rotate(-covEllipseParams[2]);
+  painter.translate(-p1.x(), -p1.y());
+
+
+  
+  
+  painter.restore();
+}
+
 void World::paintObstacleBot(QPainter &painter, Pose p)
 {
   double r = GROUND_BOT_RADIUS;
@@ -131,14 +162,27 @@ paintObstacleBot(painter, common->getgBot2Pose());
 paintObstacleBot(painter, common->getgBot3Pose());
 paintGBot(painter, common->getgBot4Pose());
   paintGBot(painter, common->getgBot5Pose());
-paintGBot(painter, common->getgBot6Pose());
-paintGBot(painter, common->getgBot7Pose());
-paintGBot(painter, common->getgBot8Pose());
-paintGBot(painter, common->getgBot9Pose());
-paintGBot(painter, common->getgBot10Pose());
-paintGBot(painter, common->getgBot11Pose());
-paintGBot(painter, common->getgBot12Pose());
-paintGBot(painter, common->getgBot13Pose());
+// paintGBot(painter, common->getgBot6Pose());
+// paintGBot(painter, common->getgBot7Pose());
+// paintGBot(painter, common->getgBot8Pose());
+// paintGBot(painter, common->getgBot9Pose());
+// paintGBot(painter, common->getgBot10Pose());
+// paintGBot(painter, common->getgBot11Pose());
+// paintGBot(painter, common->getgBot12Pose());
+// paintGBot(painter, common->getgBot13Pose());
+Pose p = common->getgBot4EstiPose();
+//printf("%s %f %f\n", "yo", p.x, p.y);
+
+paintEstiGBot(painter, common->getgBot4EstiPose());
+paintEstiGBot(painter, common->getgBot5EstiPose());
+// paintEstiGBot(painter, common->getgBot6EstiPose());
+// paintEstiGBot(painter, common->getgBot7EstiPose());
+// paintEstiGBot(painter, common->getgBot8EstiPose());
+// paintEstiGBot(painter, common->getgBot9EstiPose());
+// paintEstiGBot(painter, common->getgBot10EstiPose());
+// paintEstiGBot(painter, common->getgBot11EstiPose());
+// paintEstiGBot(painter, common->getgBot12EstiPose());
+// paintEstiGBot(painter, common->getgBot13EstiPose());
   emit painting();
 }
 
